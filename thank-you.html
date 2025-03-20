@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Successful</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 50px; }
+        .success-message { color: green; font-size: 20px; }
+    </style>
+</head>
+<body>
+
+    <h2 class="success-message">Thank You for Your Payment! 🎉</h2>
+    <p>Your transaction was successful.</p>
+    <p><strong>Transaction Reference:</strong> <span id="txnRef"></span></p>
+    
+    <script>
+        // Get transaction reference from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const txnRef = urlParams.get('ref');
+        
+        // Display transaction reference (if available)
+        if (txnRef) {
+            document.getElementById("txnRef").innerText = txnRef;
+        } else {
+            document.getElementById("txnRef").innerText = "N/A";
+        }
+    </script>
+
+</body>
+</html>
